@@ -5,5 +5,5 @@ export default function JobsLayout({
 }: {
     children: React.ReactNode;
 }) {
-    return <main>{children}</main>;
+    return <main className="w-full max-w-4xl mx-auto">{children}</main>;
 }

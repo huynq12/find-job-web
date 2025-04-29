@@ -1,5 +1,3 @@
-"use client";
-
 import { FormSearch } from "@/components/main/form-search";
 import { JobListPagination } from "@/components/main/job-list-pagination";
 import Link from "next/link";

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -12,9 +11,24 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
+    navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const components: { title: string; href: string; description: string }[] = [
+const mainSideUrl: { title: string; href: string }[] = [
+    {
+        title: "Home",
+        href: "/",
+    },
+    {
+        title: "Jobs",
+        href: "/jobs",
+    },
+];
+const components: {
+    title: string;
+    href: string;
+    description: string;
+}[] = [
     {
         title: "Find with KNN",
         href: "/jobs/find-with-knn",
@@ -29,9 +43,10 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuApp() {
     return (
-        <NavigationMenu>
-            <NavigationMenuList>
-                {/* <NavigationMenuItem>
+        <div className="mt-4">
+            <NavigationMenu>
+                <NavigationMenuList>
+                    {/* <NavigationMenuItem>
                     <NavigationMenuTrigger>
                         Getting started
                     </NavigationMenuTrigger>
@@ -75,46 +90,38 @@ export function NavigationMenuApp() {
                     </NavigationMenuContent>
                 </NavigationMenuItem> */}
 
-                <NavigationMenuItem>
-                    <Link href="/">
-                        Home
-                        {/* <NavigationMenuLink
-                            className={navigationMenuTriggerStyle()}
-                        >
-                            Home
-                        </NavigationMenuLink> */}
-                    </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link href="/jobs">
-                        Jobs
-                        {/* <NavigationMenuLink
-                            className={navigationMenuTriggerStyle()}
-                        >
-                            Jobs
-                        </NavigationMenuLink> */}
-                    </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>
-                        Find job with AI
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            {components.map((component) => (
-                                <ListItem
-                                    key={component.title}
-                                    title={component.title}
-                                    href={component.href}
-                                >
-                                    {component.description}
-                                </ListItem>
-                            ))}
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-        </NavigationMenu>
+                    {mainSideUrl.map((item) => (
+                        <NavigationMenuItem key={item.title}>
+                            <NavigationMenuLink
+                                href={item.href}
+                                className={navigationMenuTriggerStyle()}
+                            >
+                                {item.title}
+                            </NavigationMenuLink>
+                        </NavigationMenuItem>
+                    ))}
+
+                    <NavigationMenuItem>
+                        <NavigationMenuTrigger>
+                            Find job with AI
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                                {components.map((component) => (
+                                    <ListItem
+                                        key={component.title}
+                                        title={component.title}
+                                        href={component.href}
+                                    >
+                                        {component.description}
+                                    </ListItem>
+                                ))}
+                            </ul>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem>
+                </NavigationMenuList>
+            </NavigationMenu>
+        </div>
     );
 }
 
