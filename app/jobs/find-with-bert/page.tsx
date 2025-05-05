@@ -17,7 +17,7 @@ interface JobItem {
 
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN ?? "";
 
-const MATCH_JOB_KNN = process.env.NEXT_PUBLIC_MATCH_JOB_KNN;
+const MATCH_JOB_BERT = process.env.NEXT_PUBLIC_MATCH_JOB_BERT;
 
 async function post<T = any>(url: string, data?: any): Promise<Response> {
     return fetch(url, {
@@ -37,7 +37,7 @@ async function matchJob(
 
     if (resume) formData.append("resume", resume);
 
-    const uri = `${DOMAIN}${MATCH_JOB_KNN}`;
+    const uri = `${DOMAIN}${MATCH_JOB_BERT}`;
     console.log(uri);
 
     const res = await post(uri, formData);
