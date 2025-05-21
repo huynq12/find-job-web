@@ -2,7 +2,6 @@
 
 import { FormSearch } from "@/components/main/form-search";
 import { JobListPagination } from "@/components/main/job-list-pagination";
-import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 interface ApiResponse {
@@ -103,14 +102,14 @@ export default function JobsPage() {
                         </h2>
                         <p className="text-gray-600">{job.company}</p>
                         <p className="text-gray-600">{job.benefit}</p>
-                        <div className="mt-4">
+                        {/* <div className="mt-4">
                             <Link
                                 href={`/jobs/${job.id}`}
                                 className="text-blue-600 hover:underline"
                             >
                                 Xem chi tiết
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                 ))}
             </div>
